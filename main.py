@@ -26,8 +26,8 @@ def read_configuration():
         return dict_config
 
 
-def send_telegram_pic(bot, config: dict, pic_file_path: str):
-    bot.send_photo(chat_id=config['chat-id'], photo=open(pic_file_path, 'rb'))
+def send_telegram_pic(bot, config: dict, pic_file_path: str, caption:str):
+    bot.send_photo(chat_id=config['chat-id'], photo=open(pic_file_path, 'rb'), caption=caption)
 
 
 def main():
@@ -37,7 +37,7 @@ def main():
     while True:
         this_date_time: str = get_date_time_str()
         pic_file_path = take_picture(this_date_time)
-        send_telegram_pic(bot, config, pic_file_path)
+        send_telegram_pic(bot, config, pic_file_path, this_date_time)
         time.sleep(SECS_IN_30_MINS)
 
 
