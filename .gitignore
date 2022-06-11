@@ -1,0 +1,4 @@
+secrets.json
+.idea
+output/*
+!output/placeholder.txt
