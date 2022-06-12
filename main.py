@@ -9,6 +9,7 @@ SECS_IN_30_MINS = 60 * 30
 
 def take_picture(date_time: str):
     camera = cv2.VideoCapture(0)
+    time.sleep(1)
     return_value, image = camera.read()
     filepath = 'output/' + date_time + '.png'
     cv2.imwrite(filepath, image)
